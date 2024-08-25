@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .search-container {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        input {
+            flex-grow: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        .error {
+            color: red;
+            margin-bottom: 10px;
+        }
+        .weather-tile {
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        .weather-tile h2 {
+            margin-top: 0;
+        }
+        .weather-tile p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Weather App</h1>
+        <form id="search-form">
+            <div class="search-container">
+                <input type="text" id="location-input" placeholder="Enter location" required>
+                <button type="submit">Search</button>
+            </div>
+        </form>
+        <div id="error" class="error"></div>
+        <div id="weather-info" class="weather-tile"></div>
+    </div>
+
+    <script>
+        // You'll need to sign up for a free API key at OpenWeatherMap
+        const API_KEY = '5ec84e4c1a3539eec06353419f90dc30';
+
+        document.getElementById('search-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const location = document.getElementById('location-input').value;
+            const errorDiv = document.getElementById('error');
+            const weatherInfo = document.getElementById('weather-info');
+
+            errorDiv.textContent = '';
+            weatherInfo.innerHTML = '';
+
+            try {
+                const response = await fetch(
+                    `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${API_KEY}`
+                );
+
+                if (!response.ok) {
+                    throw new Error('Location not found');
+                }
+
+                const data = await response.json();
+                displayWeather(data);
+            } catch (err) {
+                errorDiv.textContent = 'Unable to fetch weather data. Please try again.';
+            }
+        });
+
+        function displayWeather(weather) {
+            const weatherInfo = document.getElementById('weather-info');
+            weatherInfo.innerHTML = `
+                <h2>${weather.name}</h2>
+                <p style="font-size: 24px; font-weight: bold;">${Math.round(weather.main.temp)}°C</p>
+                <p style="text-transform: capitalize;">${weather.weather[0].description}</p>
+                <p>Humidity: ${weather.main.humidity}%</p>
+                <p>Wind Speed: ${weather.wind.speed} m/s</p>
+            `;
+        }
+    </script>
+</body>
+</html>
