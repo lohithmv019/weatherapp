@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omilos - Innovation in Judicial Services</title>
+    <style>
+        :root {
+            --primary-color: #D4AF37;
+            --secondary-color: #FFC0CB;
+            --text-color: #333;
+            --bg-color: #f8f8f8;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .header {
+            background-color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            color: var(--primary-color);
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav {
+            display: flex;
+        }
+        .nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #b8960f;
+        }
+        .hero, .services, .why-choose, .products {
+            padding: 50px 0;
+            text-align: center;
+        }
+        .hero {
+            background-color: #FFF5F5;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .grid-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .grid-item:hover {
+            transform: translateY(-5px);
+        }
+        .icon {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        .products .grid-item {
+            text-align: left;
+        }
+        .products img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0 20px;
+        }
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .footer-section {
+            flex: 1;
+            margin-bottom: 20px;
+            min-width: 200px;
+        }
+        .footer-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        .social-icons a {
+            color: white;
+            margin-right: 10px;
+            font-size: 20px;
+            text-decoration: none;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #555;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .header .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav {
+                margin-top: 20px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav a {
+                margin: 10px 0 0 0;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                flex-direction: column;
+            }
+            .footer-section {
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .btn {
+                display: block;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">Omilos</div>
+            <nav class="nav">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#practice-areas">Practice Areas</a>
+                <a href="#attorneys">Attorneys</a>
+            </nav>
+            <a href="#" class="btn">Let's Talk</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Innovation in Judicial Services</h1>
+            <p>For every problem life throws our way, there is a solution out there. Sometimes a stifling array of them. Question is, how do we find the solution that fits our needs? OMILOS is in business to Unite People with Solutions.</p>
+            <a href="#" class="btn">Get started</a>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <h2>We offer Several Services for you</h2>
+            <p>Law can be complex and overwhelming. Don't let finding the right legal counsel add to your stress. We simplify the process, connecting you with qualified lawyers who understand your needs</p>
+            <div class="grid">
+                <div class="grid-item">
+                    <div class="icon">🏛️</div>
+                    <h3>Your Trusted Guide to Indian Judiciary</h3>
+                    <p>We are committed to becoming your go-to source for accurate and comprehensive information on India's Judiciary system.</p>
+                </div>
+                <div class="grid-item">
+                    <div class="icon">📚</div>
+                    <h3>Your Legal Knowledge Hub</h3>
+                    <p>We aim to be India's ultimate source of legal information, simplifying complex legal concepts through easy-to-understand language.</p>
+                </div>
+                <div class="grid-item">
+                    <div class="icon">📋</div>
+                    <h3>Your Verified Legal Directory</h3>
+                    <p>We strive to be India's pioneering platform for verified and up-to-date information on legal professionals and allied service providers.</p>
+                </div>
+                <div class="grid-item">
+                    <div class="icon">🌐</div>
+                    <h3>Your Complete Legal Ecosystem</h3>
+                    <p>Discover a comprehensive platform designed to simplify your legal journey. Accurately find lawyers, paralegals, and more.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose">
+        <div class="container">
+            <h2>Why Choose - Omilos?</h2>
+            <div class="grid">
+                <div class="grid-item">
+                    <h3>Streamlining Legal Access through Technology</h3>
+                    <p>The proliferation of government mobile apps like Nyaya Bandhu, Citizen Tele-Law, and UMANG, often with overlapping functionalities and hinders.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Your Gateway to Legal Aid</h3>
+                    <p>Government initiatives like Lok Adalat, LACMS, and Tele-Law offer invaluable legal assistance, but their reach is often limited due to inadequate awareness. We aim to be the bridge, effectively communicating these programs to the public, ensuring that everyone has access to the legal support they deserve.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Making Law Accessible to All</h3>
+                    <p>Complex legal jargon and outdated communication methods hinder public understanding of the law.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Unlocking the Complexities of Indian Judiciary</h3>
+                    <p>Navigating India's judiciary system can be overwhelming due to the lack of a centralized source of reliable information. We aim to bridge this gap by providing a comprehensive platform that demystifies the legal landscape.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Unifying Legal Knowledge</h3>
+                    <p>The legal world lacks a centralized platform for aggregating and providing accessible legal information.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Bridging the Legal Data Gap</h3>
+                    <p>India's legal landscape is fragmented across multiple government platforms like DOJ, NALSA, BCI, KSLA, and LACMS, often leading to inconsistent and conflicting data. We aim to consolidate this information into a unified, reliable platform, providing citizens and legal professionals with a single source of truth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products">
+        <div class="container">
+            <h2>Omilos - The Product</h2>
+            <div class="grid">
+                <div class="grid-item">
+                    <img src="/api/placeholder/400/300" alt="Law Made Easy">
+                    <h3>Law Made Easy</h3>
+                    <p>Law can be complex and overwhelming. Don't let finding the right legal counsel add to your stress. We simplify the process, connecting you with qualified lawyers who understand your needs</p>
+                    <a href="#" class="btn">Learn more →</a>
+                </div>
+                <div class="grid-item">
+                    <img src="/api/placeholder/400/300" alt="Find Your Legal Match">
+                    <h3>Find Your Legal Match</h3>
+                    <p>India boasts over 1.5 million legal experts. But with so many options, finding the perfect lawyer for your case can be daunting. Let us help you find the right legal match.</p>
+                    <a href="#" class="btn">Learn more →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Omilos</h3>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Justice</h3>
+                    <p>Privacy Policy</p>
+                    <p>Terms & Conditions</p>
+                    <p>Cookie Preferences</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Pages</h3>
+                    <p>Home</p>
+                    <p>About</p>
+                    <p>Practice Areas</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Justice</h3>
+                    <p>50 Harrison Street, PH Suite 445</p>
+                    <p>Hoboken, NJ 07030</p>
+                    <p>(000) 123-4567</p>
+                    <p>hello@gmail.com</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook">f</a>
+                        <a href="#" aria-label="LinkedIn">in</a>
+                        <a href="#" aria-label="Twitter">t</a>
+                        <a href="#" aria-label="Instagram">ig</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
